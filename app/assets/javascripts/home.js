@@ -1,8 +1,15 @@
-$(document.body).on("click", "a.change_workflow", function() {
+$(document).on("click", ".change_workflow", function() {
+  console.log($(this).attr('que_urls'))
   $.ajax({
-    type: "PATCH",
-    url: $(this).attr("que_urls"),
-    dataType: "script"
+    url: $(this).attr('que_url'),
+    dataType: "script",
+    type: "PATCH"
   })
+  $(".flash_message").fadeOut(2000)
 });
-$(".flash_message").fadeOut(2000)
+
+$(document).on("click", ".remove_student_from_list", function() {
+  $(this).remove()
+  $(".flash_message").fadeOut(2000)
+});
+

@@ -1,4 +1,5 @@
 %li{ class: "#{student.workflow_state} student student_#{student.id}"}
+  - p student
   = student.name
   (#{student.workflow_state})
   = student.created_at.strftime("%l:%M%p")
@@ -6,8 +7,8 @@
   |
   = link_to "Edit", edit_que_path(student)
   |
-  = link_to "Delete", que_path(student), method: :delete
-  |
   = display_links(student)
   |
-  = link_to "Remove From List", "javascript:void(0);", class: "remove_student_from_list"
+  = link_to "Remove From List", que_path(student), method: :delete
+  / |
+  / = link_to "Remove From List", "javascript:void(0);", class: "remove_student_from_list"

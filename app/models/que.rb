@@ -28,6 +28,7 @@ class Que < ActiveRecord::Base
 
   def display_name
     "Mr. #{name}"
+  end
 
   include Workflow
   workflow do
@@ -36,9 +37,11 @@ class Que < ActiveRecord::Base
     end
     state :in_progress do
       event :nick_tried_helping, transitions_to: :still_confused
+      event :nick_leave, transitions_to: :completed
     end
     state :still_confused do
       event :nick_visit, transitions_to: :in_progress
     end
     state :completed
   end
+end

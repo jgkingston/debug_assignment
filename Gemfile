@@ -50,3 +50,5 @@ gem 'spring',        group: :development
 gem 'paperclip'
 gem 'letter_opener', group: :development
 gem 'devise'
+gem 'workflow'
+gem 'haml'
